@@ -11,6 +11,5 @@
 /bin/
 /composer.phar
 /UPGRADE*.md
-/README.md
 .idea/
 LICENSE
