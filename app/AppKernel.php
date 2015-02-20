@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new WP\UserBundle\WPUserBundle(),
+            new WP\WhitepaperBundle\WPWhitepaperBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

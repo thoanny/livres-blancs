@@ -1,0 +1,4 @@
+services:
+#    wp_whitepaper.example:
+#        class: WP\WhitepaperBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
