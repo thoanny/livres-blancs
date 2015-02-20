@@ -13,10 +13,10 @@ security:
             anonymous: true
             provider:  main
             form_login:
-                login_path: login
-                check_path: login_check
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
             logout:
-                path:   logout
+                path:   fos_user_security_logout
                 target: /
             remember_me:
                 key:    %secret%
@@ -25,4 +25,4 @@ security:
         - { path: ^/admin, roles: ROLE_ADMIN }
 
     encoders:
-        AND\UserBundle\Entity\User: sha512
+        WP\UserBundle\Entity\User: sha512
