@@ -1,12 +1,28 @@
 security:
     providers:
-        in_memory:
-            memory: ~
+        main:
+            id: fos_user.user_provider.username
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
 
-        default:
-            anonymous: ~
+        main:
+            pattern:   ^/
+            anonymous: true
+            provider:  main
+            form_login:
+                login_path: login
+                check_path: login_check
+            logout:
+                path:   logout
+                target: /
+            remember_me:
+                key:    %secret%
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
+
+    encoders:
+        AND\UserBundle\Entity\User: sha512
