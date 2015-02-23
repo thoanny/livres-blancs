@@ -13,3 +13,4 @@
 /UPGRADE*.md
 .idea/
 LICENSE
+*.php~

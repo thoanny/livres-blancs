@@ -1,0 +1,18 @@
+{% extends "WPWhitepaperBundle::layout.html.twig" %}
+
+{% block wpwhitepaper_body %}
+
+<h1>{{ whitepaper.title }}</h1>
+<p class="lead">{{ whitepaper.description }}</p>
+
+<dl class="dl-horizontal">
+    <dt>Date de publication</dt>
+    <dd>{{ whitepaper.publishedOn|date('d/m/Y') }}</dd>
+</dl>
+
+<ul>
+    <li><a href="{{ path('wp_whitepaper_edit', {'id': whitepaper.id}) }}">Modifier</a></li>
+    <li><a href="{{ path('wp_whitepaper_delete', {'id': whitepaper.id}) }}">Supprimer</a></li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "WPWhitepaperBundle::layout.html.twig" %}
+
+{% block wpwhitepaper_body %}
+
+<h1>{{ whitepaper.title }}</h1>
+
+<p>Êtes-vous sûr de vouloir supprimer ce livre blanc ?</p>
+
+<form action="{{ path('wp_whitepaper_delete', {'id': whitepaper.id}) }}" method="post">
+    <input type="submit" value="Oui" class="btn btn-danger" />
+    {{ form_rest(form) }}
+</form>
+<a href="{{ path('wp_whitepaper_view', {'id': whitepaper.id}) }}" class="btn btn-default">Non</a>
+
+{% endblock %}

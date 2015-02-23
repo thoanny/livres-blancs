@@ -1,3 +1,21 @@
 wp_whitepaper_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: WPWhitepaperBundle:Default:index }
+    path:     /{page}
+    defaults: { _controller: WPWhitepaperBundle:Whitepaper:index, page: 1 }
+    requirements:
+        page: \d*
+
+wp_whitepaper_add:
+    path:     /add
+    defaults: { _controller: WPWhitepaperBundle:Whitepaper:add }
+
+wp_whitepaper_view:
+    path:     /view/{id}
+    defaults: { _controller: WPWhitepaperBundle:Whitepaper:view }
+
+wp_whitepaper_edit:
+    path:     /edit/{id}
+    defaults: { _controller: WPWhitepaperBundle:Whitepaper:edit }
+
+wp_whitepaper_delete:
+    path:     /delete/{id}
+    defaults: { _controller: WPWhitepaperBundle:Whitepaper:delete }

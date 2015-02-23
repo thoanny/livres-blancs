@@ -1,0 +1,5 @@
+<ul class="nav nav-pills nav-stacked">
+{% for wp in listWhitepapers %}
+    <li><a href="{{ path('wp_whitepaper_view', {'id': wp.id}) }}">{{ wp.title }}</a></li>
+{% endfor %}
+</ul>
