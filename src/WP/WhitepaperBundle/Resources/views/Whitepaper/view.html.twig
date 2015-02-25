@@ -6,8 +6,14 @@
 <p class="lead">{{ whitepaper.description }}</p>
 
 <dl class="dl-horizontal">
+    {% if whitepaper.publishedOn %}
     <dt>Date de publication</dt>
     <dd>{{ whitepaper.publishedOn|date('d/m/Y') }}</dd>
+    {% endif %}
+    {% if whitepaper.lang %}
+        <dt>Langue</dt>
+        <dd>{{ whitepaper.lang|capitalize }}</dd>
+    {% endif %}
     {% if whitepaper.editor %}
     <dt>Editeur</dt>
     <dd>{{ whitepaper.editor.name }}</dd>

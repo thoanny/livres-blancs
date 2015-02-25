@@ -49,6 +49,13 @@ class Whitepaper
     private $description;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="lang", type="string", length=10, nullable=true)
+     */
+    private $lang;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="published_on", type="date")
@@ -254,5 +261,28 @@ class Whitepaper
     public function getEditor()
     {
         return $this->editor;
+    }
+
+    /**
+     * Set lang
+     *
+     * @param string $lang
+     * @return Whitepaper
+     */
+    public function setLang($lang)
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /**
+     * Get lang
+     *
+     * @return string 
+     */
+    public function getLang()
+    {
+        return $this->lang;
     }
 }

@@ -24,6 +24,12 @@
     </div>
 
     <div class="form-group">
+        {{ form_label(form.lang, 'Langue') }}
+        {{ form_errors(form.lang) }}
+        {{ form_widget(form.lang) }}
+    </div>
+
+    <div class="form-group">
         {{ form_label(form.publishedOn, 'Date de publication') }}
         {{ form_errors(form.publishedOn) }}
         {{ form_widget(form.publishedOn) }}

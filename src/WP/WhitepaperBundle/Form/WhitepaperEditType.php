@@ -23,6 +23,7 @@ class WhitepaperEditType extends AbstractType
                 'expanded' => false,
                 'required' => false
             ))
+            ->add('lang', 'language', array( 'required' => false,'preferred_choices' => array('fr', 'en', 'de', 'it', 'es') ))
             ->add('published', 'checkbox', array('required'=>false))
             ->add('send', 'submit', array('label'=>'Enregistrer', 'attr' => array('class'=>'btn btn-success')))
         ;
