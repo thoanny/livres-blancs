@@ -1,0 +1,30 @@
+{% extends "WPWhitepaperBundle::layout.html.twig" %}
+
+{% block wpwhitepaper_body %}
+
+    <h1>Éditeurs</h1>
+
+    <ul>
+        {% for wp in listEditors %}
+            <li>
+                <a href="{{ path('wp_editor_edit', {'id': wp.id}) }}">
+                    {#{% if advert.image is not null %}<img src="{{ asset(advert.image.webPath) }}" alt="{{ advert.image.alt }}" style="max-width:200px;height:auto;" />{% endif %}#}
+                    {{ wp.name }}
+                </a>
+            </li>
+        {% else %}
+            <li>Pas (encore !) d'éditeurs</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="pagination">
+        {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+        {% for p in range(1, nbPages) %}
+            <li{% if p == page %} class="active"{% endif %}>
+                <a href="{{ path('wp_editor_homepage', {'page': p}) }}">{{ p }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

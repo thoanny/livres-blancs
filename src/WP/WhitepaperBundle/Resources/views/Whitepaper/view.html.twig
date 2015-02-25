@@ -8,6 +8,10 @@
 <dl class="dl-horizontal">
     <dt>Date de publication</dt>
     <dd>{{ whitepaper.publishedOn|date('d/m/Y') }}</dd>
+    {% if whitepaper.editor %}
+    <dt>Editeur</dt>
+    <dd>{{ whitepaper.editor.name }}</dd>
+    {% endif %}
 </dl>
 
 <ul>

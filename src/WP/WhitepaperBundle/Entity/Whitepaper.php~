@@ -12,9 +12,16 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="WP\WhitepaperBundle\Entity\WhitepaperRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Whitepaper
 {
+    /**
+     * @ORM\ManyToOne(targetEntity="WP\WhitepaperBundle\Entity\Editor", inversedBy="whitepapers")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $editor;
+
     /**
      * @var integer
      *
@@ -169,4 +176,59 @@ class Whitepaper
     {
         return $this->slug;
     }
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     * @return Whitepaper
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean 
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setUpdatedAt(new \Datetime());
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Whitepaper
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
 }

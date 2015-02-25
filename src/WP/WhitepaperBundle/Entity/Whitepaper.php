@@ -3,6 +3,7 @@
 namespace WP\WhitepaperBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -16,6 +17,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Whitepaper
 {
+    /**
+     * @ORM\ManyToOne(targetEntity="WP\WhitepaperBundle\Entity\Editor")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $editor;
+
     /**
      * @var integer
      *
@@ -223,5 +230,29 @@ class Whitepaper
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+
+    /**
+     * Set editor
+     *
+     * @param \WP\WhitepaperBundle\Entity\Editor $editor
+     * @return Whitepaper
+     */
+    public function setEditor(\WP\WhitepaperBundle\Entity\Editor $editor)
+    {
+        $this->editor = $editor;
+
+        return $this;
+    }
+
+    /**
+     * Get editor
+     *
+     * @return \WP\WhitepaperBundle\Entity\Editor 
+     */
+    public function getEditor()
+    {
+        return $this->editor;
     }
 }

@@ -18,6 +18,12 @@
     </div>
 
     <div class="form-group">
+        {{ form_label(form.editor, 'Éditeur') }}
+        {{ form_errors(form.editor) }}
+        {{ form_widget(form.editor) }}
+    </div>
+
+    <div class="form-group">
         {{ form_label(form.publishedOn, 'Date de publication') }}
         {{ form_errors(form.publishedOn) }}
         {{ form_widget(form.publishedOn) }}

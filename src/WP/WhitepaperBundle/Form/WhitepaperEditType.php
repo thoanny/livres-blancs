@@ -14,6 +14,15 @@ class WhitepaperEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('description', 'textarea')
+            ->add('publishedOn', 'date')
+            ->add('editor', 'entity', array(
+                'class'    => 'WPWhitepaperBundle:Editor',
+                'property' => 'name',
+                'multiple' => false,
+                'expanded' => false,
+                'required' => false
+            ))
             ->add('published', 'checkbox', array('required'=>false))
             ->add('send', 'submit', array('label'=>'Enregistrer', 'attr' => array('class'=>'btn btn-success')))
         ;
