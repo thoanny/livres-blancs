@@ -5,6 +5,10 @@
 <h1>{{ whitepaper.title }}</h1>
 <p class="lead">{{ whitepaper.description }}</p>
 
+{% if whitepaper.file %}
+<p><a href="{{ path('wp_file_view', {slug: whitepaper.slug, token: whitepaper.file.token}) }}" class="btn btn-primary btn-lg">Télécharger</a></p>
+{% endif %}
+
 <dl class="dl-horizontal">
     {% if whitepaper.publishedOn %}
     <dt>Date de publication</dt>

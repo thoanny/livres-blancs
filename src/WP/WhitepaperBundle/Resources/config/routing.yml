@@ -39,3 +39,9 @@ wp_editor_edit:
 wp_editor_delete:
     path:     /editor/delete/{id}
     defaults: { _controller: WPWhitepaperBundle:Editor:delete }
+
+
+
+wp_file_view:
+    path:     /download/{slug}/{token}
+    defaults: { _controller: WPWhitepaperBundle:File:download }

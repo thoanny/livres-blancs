@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class WhitepaperType extends AbstractType
+class FileType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,9 +15,7 @@ class WhitepaperType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'text')
-            ->add('file', new FileType())
-            ->add('send', 'submit', array('label'=>'Ajouter', 'attr' => array('class'=>'btn btn-success')))
+            ->add('file')
         ;
     }
     
@@ -27,7 +25,7 @@ class WhitepaperType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'WP\WhitepaperBundle\Entity\Whitepaper'
+            'data_class' => 'WP\WhitepaperBundle\Entity\File'
         ));
     }
 
@@ -36,6 +34,6 @@ class WhitepaperType extends AbstractType
      */
     public function getName()
     {
-        return 'wp_whitepaperbundle_whitepaper';
+        return 'wp_whitepaperbundle_file';
     }
 }

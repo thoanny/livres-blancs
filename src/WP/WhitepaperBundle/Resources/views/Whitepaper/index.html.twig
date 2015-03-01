@@ -7,6 +7,7 @@
     <ul>
         {% for wp in listWhitepapers %}
             <li>
+                {% if not wp.published %}<span class="label label-default">Non publié</span>{% endif %}
                 <a href="{{ path('wp_whitepaper_view', {'id': wp.id}) }}">
                     {#{% if advert.image is not null %}<img src="{{ asset(advert.image.webPath) }}" alt="{{ advert.image.alt }}" style="max-width:200px;height:auto;" />{% endif %}#}
                     {{ wp.title }}

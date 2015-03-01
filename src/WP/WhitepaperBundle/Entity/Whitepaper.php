@@ -24,6 +24,12 @@ class Whitepaper
     private $editor;
 
     /**
+     * @ORM\OneToOne(targetEntity="WP\WhitepaperBundle\Entity\File", cascade={"remove","persist"})
+     * @ORM\JoinColumn(nullable=true) // Force l’ajout d’une image pour chaque Advert
+     */
+    private $file;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -43,8 +49,7 @@ class Whitepaper
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
-     * @Assert\Length(min=100)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -284,5 +289,28 @@ class Whitepaper
     public function getLang()
     {
         return $this->lang;
+    }
+
+    /**
+     * Set file
+     *
+     * @param \WP\WhitepaperBundle\Entity\File $file
+     * @return Whitepaper
+     */
+    public function setFile(\WP\WhitepaperBundle\Entity\File $file = null)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * Get file
+     *
+     * @return \WP\WhitepaperBundle\Entity\File 
+     */
+    public function getFile()
+    {
+        return $this->file;
     }
 }

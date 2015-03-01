@@ -24,6 +24,12 @@ class Whitepaper
     private $editor;
 
     /**
+     * @ORM\OneToOne(targetEntity="WP\WhitepaperBundle\Entity\File", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true) // Force l’ajout d’une image pour chaque Advert
+     */
+    private $file;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -261,5 +267,28 @@ class Whitepaper
     public function getEditor()
     {
         return $this->editor;
+    }
+
+    /**
+     * Set lang
+     *
+     * @param string $lang
+     * @return Whitepaper
+     */
+    public function setLang($lang)
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /**
+     * Get lang
+     *
+     * @return string 
+     */
+    public function getLang()
+    {
+        return $this->lang;
     }
 }
