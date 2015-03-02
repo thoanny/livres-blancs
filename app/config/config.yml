@@ -76,6 +76,9 @@ fos_user:
     db_driver:     orm
     firewall_name: main
     user_class:    WP\UserBundle\Entity\User
+    registration:
+        form:
+            type: wp_user_registration
 
 # Stof\DoctrineExtensionBundle configuration
 stof_doctrine_extensions:
