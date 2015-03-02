@@ -46,9 +46,9 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     * @ORM\Column(name="bio", type="text", nullable=true)
      */
-    private $description;
+    private $bio;
 
     /**
      * @var string
