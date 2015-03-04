@@ -18,9 +18,9 @@
         <dt>Langue</dt>
         <dd>{{ whitepaper.lang|capitalize }}</dd>
     {% endif %}
-    {% if whitepaper.editor %}
+    {% if whitepaper.user %}
     <dt>Editeur</dt>
-    <dd>{{ whitepaper.editor.name }}</dd>
+    <dd>{{ whitepaper.user.company }}</dd>
     {% endif %}
 </dl>
 

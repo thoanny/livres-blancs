@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use WP\WhitepaperBundle\Entity\Whitepaper;
-use WP\WhitepaperBundle\Entity\Editor;
 use WP\WhitepaperBundle\Entity\File;
 use WP\WhitepaperBundle\Form\WhitepaperType;
 use WP\WhitepaperBundle\Form\WhitepaperEditType;

@@ -1,17 +1,45 @@
 <?php
 
-namespace WP\WhitepaperBundle\Controller;
+namespace WP\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use WP\WhitepaperBundle\Entity\Editor;
-use WP\WhitepaperBundle\Form\EditorType;
-use WP\WhitepaperBundle\Form\EditorEditType;
+use WP\UserBundle\Entity\User;
+use WP\UserBundle\Form\EditorType;
+//use WP\WhitepaperBundle\Form\EditorEditType;
 
 class EditorController extends Controller
 {
+
+    public function registerAction(Request $request)
+    {
+
+        $editor = new User();
+//
+        $form = $this->createForm(new EditorType(), $editor);
+//
+        if ($form->handleRequest($request)->isValid()) {
+            $userManager = $this->get('fos_user.user_manager');
+//            $user = $userManager->createUser();
+            $user = $form->getData();
+//            $user->setUsername('john2');
+//            $user->setPlainPassword('john2');
+//            $user->setEmail('john2.doe@example.com');
+            $user->addRole('ROLE_EDITOR');
+            $userManager->updateUser($user);
+//            $em = $this->getDoctrine()->getManager();
+//            $em->persist($editor);
+//            $em->flush();
+//            $request->getSession()->getFlashBag()->add('notice', 'Editeur bien enregistré.');
+//            return $this->redirect($this->generateUrl('wp_editor_view', array('id' => $editor->getId())));
+        }
+
+        return $this->render('WPUserBundle:Editor:register.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
 
     public function indexAction($page)
     {
@@ -67,16 +95,23 @@ class EditorController extends Controller
     public function addAction(Request $request)
     {
 
-        $editor = new Editor();
-
-        $form = $this->createForm(new EditorType(), $editor);
-
+//        $editor = new Editor();
+//
+        $form = $this->createForm(new EditorType());
+//
         if ($form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($editor);
-            $em->flush();
-            $request->getSession()->getFlashBag()->add('notice', 'Editeur bien enregistré.');
-            return $this->redirect($this->generateUrl('wp_editor_view', array('id' => $editor->getId())));
+            $userManager = $this->get('fos_user.user_manager');
+            $user = $userManager->createUser();
+            $user->setUsername('john2');
+            $user->setPlainPassword('john2');
+            $user->setEmail('john2.doe@example.com');
+            $user->addRole('ROLE_EDITOR');
+            $userManager->updateUser($user);
+//            $em = $this->getDoctrine()->getManager();
+//            $em->persist($editor);
+//            $em->flush();
+//            $request->getSession()->getFlashBag()->add('notice', 'Editeur bien enregistré.');
+//            return $this->redirect($this->generateUrl('wp_editor_view', array('id' => $editor->getId())));
         }
 
         return $this->render('WPWhitepaperBundle:Editor:add.html.twig', array(

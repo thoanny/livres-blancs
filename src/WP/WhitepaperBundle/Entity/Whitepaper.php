@@ -18,10 +18,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Whitepaper
 {
     /**
-     * @ORM\ManyToOne(targetEntity="WP\WhitepaperBundle\Entity\Editor")
+     * @ORM\ManyToOne(targetEntity="WP\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $editor;
+    private $user;
 
     /**
      * @ORM\OneToOne(targetEntity="WP\WhitepaperBundle\Entity\File", cascade={"remove","persist"})
@@ -244,30 +244,6 @@ class Whitepaper
         return $this->updatedAt;
     }
 
-
-    /**
-     * Set editor
-     *
-     * @param \WP\WhitepaperBundle\Entity\Editor $editor
-     * @return Whitepaper
-     */
-    public function setEditor(\WP\WhitepaperBundle\Entity\Editor $editor)
-    {
-        $this->editor = $editor;
-
-        return $this;
-    }
-
-    /**
-     * Get editor
-     *
-     * @return \WP\WhitepaperBundle\Entity\Editor 
-     */
-    public function getEditor()
-    {
-        return $this->editor;
-    }
-
     /**
      * Set lang
      *
@@ -312,5 +288,28 @@ class Whitepaper
     public function getFile()
     {
         return $this->file;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \WP\UserBundle\Entity\User $user
+     * @return Whitepaper
+     */
+    public function setUser(\WP\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \WP\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

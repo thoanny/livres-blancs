@@ -1,0 +1,21 @@
+wp_user_editor_homepage:
+    path:     /editor/{page}
+    defaults: { _controller: WPWhitepaperBundle:Editor:index, page: 1 }
+    requirements:
+            page: \d*
+
+wp_user_editor_add:
+    path:     /editor/add
+    defaults: { _controller: WPWhitepaperBundle:Editor:add }
+
+wp_user_editor_register:
+    path:     /register/editor
+    defaults: { _controller: WPUserBundle:Editor:register }
+
+wp_user_editor_edit:
+    path:     /editor/edit/{id}
+    defaults: { _controller: WPWhitepaperBundle:Editor:edit }
+
+wp_user_editor_delete:
+    path:     /editor/delete/{id}
+    defaults: { _controller: WPWhitepaperBundle:Editor:delete }

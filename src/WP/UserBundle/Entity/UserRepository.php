@@ -12,4 +12,28 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+
+//    public function getUsersByRoleQB($role) {
+//        $qb = $this->createQueryBuilder('u');
+//
+//        return $this->createQueryBuilder('u')->join('u.roles','r')
+//            ->where($qb->expr()->in('r.role',$role))
+//            ->orderBy('u.company', 'ASC');
+//    }
+
+    public function getUsersByRoleQB($role) {
+        $qb = $this->createQueryBuilder('u')
+
+            ->orderBy('u.company', 'ASC');
+
+        $qb->add('where', $qb->expr()->in('u.role', array($role)));
+        return $qb
+//            ->getQuery()
+//            ->getResult()
+            ;
+
+//            ->where($qb->expr()->in('r.role',$qb->expr()->literal($role)))
+
+    }
+
 }
