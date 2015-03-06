@@ -30,6 +30,12 @@ class Whitepaper
     private $file;
 
     /**
+     * @ORM\OneToOne(targetEntity="WP\WhitepaperBundle\Entity\Image", cascade={"remove","persist"})
+     * @ORM\JoinColumn(nullable=true) // Force l’ajout d’une image pour chaque Advert
+     */
+    private $image;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -311,5 +317,28 @@ class Whitepaper
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \WP\WhitepaperBundle\Entity\Image $image
+     * @return Whitepaper
+     */
+    public function setImage(\WP\WhitepaperBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \WP\WhitepaperBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

@@ -17,6 +17,7 @@ class WhitepaperEditType extends AbstractType
     {
         $builder
             ->add('description', 'textarea')
+            ->add('image', new ImageType())
             ->add('publishedOn', 'date')
             ->add('user', 'entity', array(
                 'class'    => 'WPUserBundle:User',
@@ -25,7 +26,6 @@ class WhitepaperEditType extends AbstractType
                 'expanded' => false,
                 'required' => false,
                 'query_builder' => function(UserRepository $ur) {
-
 
                         return $ur->createQueryBuilder('u')
                             ->where('u.enabled', '1')

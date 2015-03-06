@@ -2,31 +2,43 @@
 
 {% block wpwhitepaper_body %}
 
-<h1>{{ whitepaper.title }}</h1>
-<p class="lead">{{ whitepaper.description }}</p>
+<div class="row">
 
-{% if whitepaper.file %}
-<p><a href="{{ path('wp_file_view', {slug: whitepaper.slug, token: whitepaper.file.token}) }}" class="btn btn-primary btn-lg">Télécharger</a></p>
-{% endif %}
+    <div class="col-md-2">
+        {% if whitepaper.image %}
+            <p><img style="max-width:100px;" src="{{ asset( 'uploads/images/') ~ whitepaper.image.id ~ '.' ~ whitepaper.image.path }}" alt="{{ whitepaper.title }}" class="img-thumbnail"></p>
+        {% endif %}
+    </div>
 
-<dl class="dl-horizontal">
-    {% if whitepaper.publishedOn %}
-    <dt>Date de publication</dt>
-    <dd>{{ whitepaper.publishedOn|date('d/m/Y') }}</dd>
-    {% endif %}
-    {% if whitepaper.lang %}
-        <dt>Langue</dt>
-        <dd>{{ whitepaper.lang|capitalize }}</dd>
-    {% endif %}
-    {% if whitepaper.user %}
-    <dt>Editeur</dt>
-    <dd>{{ whitepaper.user.company }}</dd>
-    {% endif %}
-</dl>
+    <div class="col-md-10">
+        <h1>{{ whitepaper.title }}</h1>
+        <p class="lead">{{ whitepaper.description }}</p>
 
-<ul>
-    <li><a href="{{ path('wp_whitepaper_edit', {'id': whitepaper.id}) }}">Modifier</a></li>
-    <li><a href="{{ path('wp_whitepaper_delete', {'id': whitepaper.id}) }}">Supprimer</a></li>
-</ul>
+        {% if whitepaper.file %}
+            <p><a href="{{ path('wp_file_view', {slug: whitepaper.slug, token: whitepaper.file.token}) }}" class="btn btn-primary btn-lg">Télécharger</a></p>
+        {% endif %}
+
+        <dl class="dl-horizontal">
+            {% if whitepaper.publishedOn %}
+                <dt>Date de publication</dt>
+                <dd>{{ whitepaper.publishedOn|date('d/m/Y') }}</dd>
+            {% endif %}
+            {% if whitepaper.lang %}
+                <dt>Langue</dt>
+                <dd>{{ whitepaper.lang|capitalize }}</dd>
+            {% endif %}
+            {% if whitepaper.user %}
+                <dt>Editeur</dt>
+                <dd>{{ whitepaper.user.company }}</dd>
+            {% endif %}
+        </dl>
+
+        <ul>
+            <li><a href="{{ path('wp_whitepaper_edit', {'id': whitepaper.id}) }}">Modifier</a></li>
+            <li><a href="{{ path('wp_whitepaper_delete', {'id': whitepaper.id}) }}">Supprimer</a></li>
+        </ul>
+    </div>
+
+</div>
 
 {% endblock %}

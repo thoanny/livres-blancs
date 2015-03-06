@@ -36,6 +36,18 @@
     </div>
 
     <div class="form-group">
+        {{ form_label(form.file, 'Livre blanc') }}
+        {{ form_errors(form.file) }}
+        {{ form_widget(form.file) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.image, 'Illustration') }}
+        {{ form_errors(form.image) }}
+        {{ form_widget(form.image) }}
+    </div>
+
+    <div class="form-group">
         {{ form_widget(form.published) }}
         {{ form_label(form.published, 'Publié') }}
     </div>
