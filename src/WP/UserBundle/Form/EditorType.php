@@ -24,7 +24,6 @@ class EditorType extends AbstractType
             ->add('website', 'url', array('required'=>false))
             ->add('facebook', 'url', array('required'=>false))
             ->add('twitter', 'text', array('required'=>false))
-//            ->add('email', 'email', array('required'=>false))
             ->add('save', 'submit', array('label'=>'S\'inscrire', 'attr' => array('class'=>'btn btn-success')))
         ;
     }
