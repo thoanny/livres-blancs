@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new WP\UserBundle\WPUserBundle(),
             new WP\WhitepaperBundle\WPWhitepaperBundle(),
+            new \JMS\SerializerBundle\JMSSerializerBundle(),
+            new \FOS\ElasticaBundle\FOSElasticaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

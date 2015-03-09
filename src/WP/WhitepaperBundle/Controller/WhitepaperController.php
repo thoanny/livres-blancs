@@ -153,4 +153,48 @@ class WhitepaperController extends Controller
         ));
 
     }
+
+    public function searchAction($query) {
+
+        /*
+        $type = $this->get('fos_elastica.index.elasticsearch');
+
+        $query_part = new \Elastica\Query\Bool();
+        $query_part->addShould(
+            new \Elastica\Query\Term(array('title' => array('value' => $query, 'boost' => 3)))
+        );
+        $query_part->addShould(
+            new \Elastica\Query\Term(array('description' => array('value' => $query)))
+        );
+
+        $filters = new \Elastica\Filter\Bool();
+//        $filters->addMust(
+//            new \Elastica\Filter\Term(array('language' => 'fr'))
+//        );
+//        $filters->addMust(
+//            new \Elastica\Filter\NumericRange('published_at', array(
+//                'lte' => date('c'),
+//            ))
+//        );
+
+        $query = new \Elastica\Query\Filtered($query_part, $filters);
+
+        $results = $type->search($query);
+
+        $whitepapers = $results->getResults();
+        $facets = $results->getFacets();
+        $hits = $results->getTotalHits();
+        print_r($results);*/
+
+
+//        $repositoryManager = $this->container->get('fos_elastica.manager');
+//        $repository = $repositoryManager->getRepository('WPWhitepaperBundle:Whitepaper');
+//        $results = $repository->find('mon');
+
+//        print_r($results);
+
+        return $this->render('WPWhitepaperBundle:Whitepaper:search.html.twig',
+            array('query' => $query, 'whitepapers' => $results));
+
+    }
 }

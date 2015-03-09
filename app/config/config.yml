@@ -85,3 +85,24 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+
+# Elastic Search
+
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    serializer:
+        callback_class: FOS\ElasticaBundle\Serializer\Callback
+        serializer: serializer
+    indexes:
+        elasticsearch:
+            types:
+                whitepaper:
+                    mappings: ~
+                    persistence:
+                        driver: orm
+                        model: WP\WhitepaperBundle\Entity\Whitepaper
+                        provider: ~
+                        listener: ~
+                        finder: ~

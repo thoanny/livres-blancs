@@ -20,6 +20,10 @@ wp_whitepaper_delete:
     path:     /delete/{id}
     defaults: { _controller: WPWhitepaperBundle:Whitepaper:delete }
 
+wp_whitepaper_search:
+    path:     /search/{query}
+    defaults: { _controller: WPWhitepaperBundle:Whitepaper:search }
+
 
 wp_file_view:
     path:     /download/{slug}/{token}
