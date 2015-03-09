@@ -197,4 +197,22 @@ class WhitepaperController extends Controller
             array('query' => $query, 'whitepapers' => $results));
 
     }
+
+    public function testAction() {
+
+        $text = 'Contenu de mon message.';
+        $subject = 'Mon sujet';
+        $to = 'anthony.destenay@gmail.com';
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject($subject)
+            ->setFrom( $this->container->getParameter('mailer_from') )
+            ->setTo($to)
+            ->setBody($this->renderView('WPWhitepaperBundle:Whitepaper:email.txt.twig', array('text' => $text)))
+        ;
+        $this->get('mailer')->send($message);
+
+        return $this->render('WPWhitepaperBundle:Whitepaper:test.html.twig'
+        );
+    }
 }

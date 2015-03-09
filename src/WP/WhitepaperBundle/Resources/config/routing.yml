@@ -24,6 +24,10 @@ wp_whitepaper_search:
     path:     /search/{query}
     defaults: { _controller: WPWhitepaperBundle:Whitepaper:search }
 
+wp_whitepaper_test:
+    path:     /test
+    defaults: { _controller: WPWhitepaperBundle:Whitepaper:test }
+
 
 wp_file_view:
     path:     /download/{slug}/{token}
