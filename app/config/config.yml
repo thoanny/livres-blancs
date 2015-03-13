@@ -119,6 +119,8 @@ liip_imagine:
     filter_sets:
         cache: ~
         wp_whitepaper_thumb:
-            quality: 75
+            quality: 90
             filters:
-                thumbnail: { size: [150, 150], mode: outbound }
+                thumbnail: { size: [100, 100], mode: outbound }
+                strip: ~
+                auto_rotate: ~
