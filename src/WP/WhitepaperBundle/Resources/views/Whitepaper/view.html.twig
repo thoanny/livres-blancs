@@ -6,7 +6,7 @@
 
     <div class="col-md-2">
         {% if whitepaper.image %}
-            <p><img style="max-width:100px;" src="{{ asset( 'uploads/images/') ~ whitepaper.image.id ~ '.' ~ whitepaper.image.path }}" alt="{{ whitepaper.title }}" class="img-thumbnail"></p>
+            <p><img style="max-width:100px;" src="{{ ('/uploads/images/' ~ whitepaper.image.id ~ '.' ~ whitepaper.image.path) | imagine_filter('wp_whitepaper_thumb') }}" alt="{{ whitepaper.title }}" class="img-thumbnail"></p>
         {% endif %}
     </div>
 

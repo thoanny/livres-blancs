@@ -16,3 +16,4 @@ LICENSE
 *.php~
 web/uploads/documents
 web/uploads/images
+web/media

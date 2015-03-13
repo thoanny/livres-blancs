@@ -107,3 +107,18 @@ fos_elastica:
                         provider: ~
                         listener: ~
                         finder: ~
+
+
+# Imagine
+
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        wp_whitepaper_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [150, 150], mode: outbound }
