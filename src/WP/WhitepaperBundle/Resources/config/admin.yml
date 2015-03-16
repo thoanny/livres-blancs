@@ -1,0 +1,11 @@
+services:
+    sonata.admin.whitepaper:
+        class: WP\WhitepaperBundle\Admin\WhitepaperAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Whitepaper" }
+        arguments:
+            - ~
+            - WP\WhitepaperBundle\Entity\Whitepaper
+            - ~
+        calls:
+            - [ setTranslationDomain, [WPWhitepaperBundle]]

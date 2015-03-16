@@ -8,6 +8,6 @@ class WPUserBundle extends Bundle
 {
     public function getParent()
     {
-        return 'FOSUserBundle';
+        return 'ApplicationSonataUserBundle';
     }
 }

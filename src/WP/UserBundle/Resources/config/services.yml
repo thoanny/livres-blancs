@@ -1,5 +1,5 @@
 services:
-    acme_user.registration.form.type:
-        class: WP\UserBundle\Form\Type\UserRegistrationFormType
-        tags:
-            - { name: form.type, alias: wp_user_registration }
+#    acme_user.registration.form.type:
+#        class: WP\UserBundle\Form\Type\UserRegistrationFormType
+#        tags:
+#            - { name: form.type, alias: wp_user_registration }
